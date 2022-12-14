@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises.all() .....all promises is resolved. </title>
+</head>
+<body>
+    <script>
+        let p1= new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                console.log("This is first primise is resolved");
+                resolve(10);
+            }, 1000);
+       });
+       let p2= new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                console.log("This is second primise is resolved");
+                resolve(20);
+            }, 2000);
+       });
+       let p3= new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                console.log("This is Third primise is resolved");
+                resolve(30);
+            }, 3000);
+       });
+       Promise.all([p1, p2, p3]).then((Result)=>{
+        console.log(`Results: ${Result}`);
+       }).catch((error)=>{
+        console.log(`Error: ${error}`);
+       });
+    </script>
+    
+</body>
+</html>

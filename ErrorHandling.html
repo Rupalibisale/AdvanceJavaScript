@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling JavaScript</title>
+</head>
+<body>
+    <script>
+
+        //first method
+        // try{
+        //     console.log("First");
+
+        //     console.log("Second");
+            
+        // }catch{
+        //     console.log("Error has Occaured");
+        // }
+
+        //second method
+        // try{
+        //     console.log("First");
+        //     blabla;
+        //     console.log("Second");
+
+        // }catch{
+        //     console.log("Error occoured");
+        // }
+
+        //third method
+
+        // try{
+        //     console.log("First");
+        //     blabla;
+        //     console.log("Second");
+        // }catch(error){
+        //     console.log(error);
+        // }
+
+        //fourth method
+
+        // try{
+        //     setTimeout(function(){
+        //         blabla();
+        //     }, 1000);
+        // }catch(error){
+        //     console.log(error);
+        // }
+
+        //fifth method
+
+        setTimeout(function(){
+            try{
+                blabla;
+            }catch(error){
+                console.log("Error occoured");
+            }
+        },1000);
+
+
+    </script>
+    
+</body>
+</html>

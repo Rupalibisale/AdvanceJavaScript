@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises.all().... total of array Results</title>
+</head>
+<body>
+    <script>
+
+        // method 1st
+//         let p1= new Promise((resolve, reject)=>{
+//             setTimeout(()=>{
+//                 console.log("First promise is resolved");
+//                 resolve(10);
+//             },1000);
+//         });
+//         let p2= new Promise((resolve, reject)=>{
+//             setTimeout(()=>{
+//                 console.log("Second promise is resolved");
+//                 resolve(20);
+//             },2000);
+//         });
+//         let p3= new Promise((resolve, reject)=>{
+//             setTimeout(()=>{
+//                 console.log("Third promise is resolved");
+//                 resolve(30);
+//             },3000);
+//         });
+//  var total = 0;
+//         Promise.all([p1, p2, p3]).then((result)=>{
+//             for(var i in result){total += result[i];}
+//             console.log(`Results: ${result}`);
+//             console.log(`Total: ${total}`);
+
+//         }).catch((error)=>{
+//             console.log(`Error: ${error}`);
+//         });
+
+        // method 2nd
+
+
+
+        let promiseCall= function(returnData, message){
+            return function(resolve, reject){
+                setTimeout(()=>{
+                console.log(`The ${message} promise is resolved`);
+                resolve(returnData);
+            }, returnData*100);
+            }
+        };
+        
+        let p1 = new Promise(promiseCall(10, "First"));
+        let p2 = new Promise(promiseCall(20, "Second"));
+        let p3 = new Promise(promiseCall(30, "Third"));
+        // let p4 = new Promise(function(resolve, reject){     //4th promise is rejected
+        //     reject("The Fourth promise is rejected");
+        // });
+
+
+ var total = 0;
+        Promise.all([p1, p2, p3, p4]).then((result)=>{
+            for(var i in result){total += result[i];}
+            console.log(`Results: ${result}`);
+            console.log(`Total: ${total}`);
+
+        }).catch((error)=>{
+            console.log(`Error: ${error}`);
+        });
+
+
+
+
+    </script>
+    
+</body>
+</html>
